@@ -1,6 +1,6 @@
 <template>
   <p></p>
-<button @click="clickMe2">点击我</button>
+  <button @click="clickMe2">点击我</button>
   <p>hello222</p>
 </template>
 
@@ -18,7 +18,7 @@ export default {
     const query = router.params.num
 
     const clickMe2 = () => {
-      console.log("点击hello2:"+query)
+      console.log("点击hello2:" + query)
     }
 
     return {
