@@ -1,10 +1,12 @@
 <template>
   <h1>{{ msg }}</h1>
-<!--  <button @click="count++">count is: {{ count }}</button>-->
-  <button id="countBtn" @click="increment">增加  </button>
+  <!--  <button @click="count++">count is: {{ count }}</button>-->
+  <button id="countBtn" @click="increment">增加</button>
   <p></p>
   <p>编辑 components/home.vue 以测试热模块替换。</p>
   <button @click="goToHello">点击我跳转</button>
+
+  <button @click="goLogin">login</button>
 </template>
 
 
@@ -20,22 +22,29 @@ export default {
   },
 
   setup() {
-    let count=ref(0);
+    let count = ref(0);
 
     const increment = () => {
       count.value++;
-      document.getElementById('countBtn').innerText = ""+count.value;
+      document.getElementById('countBtn').innerText = "" + count.value;
 
-      console.log("add:"+count.value)
+      console.log("add:" + count.value)
     }
 
     const goToHello = () => {
       console.log("点击home")
-      const num =count.value;
-      router.push( {name:'hello2',params:{num}});
+      const num = count.value;
+      router.push({name: 'hello2', params: {num}});
     }
 
+    const goLogin = () => {
+
+      router.push({name: 'login'});
+    }
+
+
     return {
+      goLogin,
       increment,
       goToHello
     };
