@@ -7,8 +7,8 @@ import login from '../components/user/login.vue'
 const routes = [
     {
         path: '/',
-        name: 'home',
-        component: home
+        name: 'login',
+        component: login
     },
     {
         path: '/hello2/:num',
@@ -16,9 +16,9 @@ const routes = [
         component: hello2
     },
     {
-        path: '/login',
-        name: 'login',
-        component: login
+        path: '/home',
+        name: 'home',
+        component: home
     }
 
 ];

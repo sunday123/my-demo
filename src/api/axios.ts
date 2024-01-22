@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {showMessage} from "./status";   // 引入状态码文件
-import {ElMessage} from 'element-plus'  // 引入el 提示框，这个项目里用什么组件库这里引什么
+import {ElMessage} from 'element-plus'
+import * as Console from "console";  // 引入el 提示框，这个项目里用什么组件库这里引什么
 
 // 设置接口超时时间
 axios.defaults.timeout = 60000;
@@ -19,7 +20,7 @@ axios.interceptors.request.use(
         // 配置请求头
         config.headers = {
             'Content-Type': 'application/json;charset=UTF-8',        // 传参方式json
-            'token': 'token0000hello1122222'              // 这里自定义配置，这里传的是token
+            'satoken': localStorage.getItem('satoken')!=null?localStorage.getItem('satoken'):null             // 这里自定义配置，这里传的是token
         };
         return config;
     },
@@ -31,7 +32,17 @@ axios.interceptors.request.use(
 //http response 拦截器
 axios.interceptors.response.use(
     response => {
-        return response;
+        // return response;
+        const code = response.data.code || 200 ;//若未设置默认成功状态
+        if (code>=200 && code<=300){
+                console.log(response.data)
+                return response.data
+        }else {
+            const msg = response.data.msg
+            ElMessage.warning(msg);
+            console.log(response.data)
+            return Promise.reject(response.data);
+        }
     },
     error => {
         const {response} = error;

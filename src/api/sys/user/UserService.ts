@@ -12,6 +12,16 @@ export class UserService {       // 模块一
     static async login1(params) {   // 接口一
         return request('/user/doLogin', params, 'post')
     }
+    static async isLogin() {   // 接口一
+        return request('/user/isLogin', null, 'get')
+    }
+    static async tokenInfo() {   // 接口一
+        return request('/user/tokenInfo', null, 'get')
+    }
+
+    static async logout() {   // 接口一
+        return request('/user/logout', null, 'get')
+    }
 }
 
 export class landRelevant {     // 模块二

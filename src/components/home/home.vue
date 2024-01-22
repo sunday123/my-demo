@@ -6,7 +6,6 @@
   <p>编辑 components/home.vue 以测试热模块替换。</p>
   <button @click="goToHello">点击我跳转</button>
 
-  <button @click="goLogin">login</button>
 </template>
 
 
@@ -37,14 +36,9 @@ export default {
       router.push({name: 'hello2', params: {num}});
     }
 
-    const goLogin = () => {
-
-      router.push({name: 'login'});
-    }
 
 
     return {
-      goLogin,
       increment,
       goToHello
     };
