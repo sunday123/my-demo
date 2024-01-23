@@ -22,6 +22,10 @@ export class UserService {       // 模块一
     static async logout() {   // 接口一
         return request('/user/logout', null, 'get')
     }
+
+    static async query(params) {   // 接口一
+        return request('/user/query', params, 'post')
+    }
 }
 
 export class landRelevant {     // 模块二

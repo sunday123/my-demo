@@ -33,7 +33,7 @@ export default {
     const goToHello = () => {
       console.log("点击home")
       const num = count.value;
-      router.push({name: 'hello2', params: {num}});
+      router.push({name: 'page', params: {num}}); //hello2
     }
 
 
